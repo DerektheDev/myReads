@@ -5,21 +5,24 @@ class BookShelf extends React.Component {
 state ={}
 
 render(){
-  const books = this.props.shelf.books;
+
+  const books = this.props.shelf.book;
+  console.log(this);
+  console.log(books);
 
   return(
    <div>
     <div className="bookshelf">
-      <h2 className="bookshelf-title">Currently Reading</h2>
+      <h2 className="bookshelf-title"> {this.props.shelf.name} </h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-          {
-            books && books.map(book => (
-              <li key={book.id}>
-                <Book  book ={book} />
-              </li>
-            ))
-          }
+
+        { books && books.map(book => (
+            <li key={book.id}>
+           <Book  book ={book} />
+          </li>
+       ))
+      }
         </ol>
       </div>
     </div>
